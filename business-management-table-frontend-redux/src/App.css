@@ -1,0 +1,42 @@
+html {
+  overflow-x: hidden;
+}
+
+/* FullScreenLoader component */
+
+.Loader {
+  background: transparent;
+  display: block;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  z-index: 99999;
+  top: 0;
+  left: 0;
+}
+.Loader .ringLoader {
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%);
+}
+
+table {
+  width: 700px;
+}
+.search__option {
+  position: relative;
+}
+.search__option .search {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+}
+
+.star__icon {
+  color: #f6c800;
+}
+
+.pagination ul li a{
+  font-size: 12px;
+}

@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Group utilities */
+
+@layer components {
+  .my__btn {
+    @apply px-4 py-1  border-purple-600 border-2 rounded-full text-lg text-purple-600 font-semibold hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2;
+  }
+}
+
+

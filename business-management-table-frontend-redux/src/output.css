@@ -1,0 +1,13 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+/* Group utilities */
+
+input::-webkit-input-placeholder{
+  color: #ddd;
+}
+
+input::placeholder{
+  color: #ddd;
+}
