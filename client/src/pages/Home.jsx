@@ -11,10 +11,10 @@ export const Home = () => {
   const [Total, setTotal] = useState(0)
   // data fetching
   let baseURL = "http://localhost:5000/api/v1/ProductList"
-  const getData = async (pageNo,perPage,searchKeyword) => {
+  const getData = async (pageNo, perPage, searchKeyword) => {
 
     try {
-      
+
       setLoading(true)
       const response = await axios.get(`${baseURL}/${pageNo}/${perPage}/${searchKeyword}`)
       console.log(`${baseURL}/${pageNo}/${perPage}/${searchKeyword}`)
@@ -32,34 +32,34 @@ export const Home = () => {
   }
 
   useEffect(() => {
-    getData(pageNo,perPage,searchKeyword)
-  }, [perPage,searchKeyword,pageNo])
+    getData(pageNo, perPage, searchKeyword)
+  }, [perPage, searchKeyword, pageNo])
 
   // select button
   const handleSelect = (e) => {
     setPerPage(e.target.value)
-    
-    
+
+
   }
 
   // search query
   const handleSearch = (e) => {
 
     setSearchKeyword(e.target.value)
-  
-    if(e.target.value===""){
+
+    if (e.target.value === "") {
       setSearchKeyword("0")
     }
   }
-// pagination
-const handlePageClick =  (e) => {
-  setpageNo(e.selected + 1)
-}
+  // pagination
+  const handlePageClick = (e) => {
+    setpageNo(e.selected + 1)
+  }
 
   return (
 
     <div className="grid justify-center items-center h-full my-16 px-20 ">
-
+      <h1 className="underline-offset-8 mb-10 text-center font-bold text-xl underline decoration-sky-500 ">Products List</h1>
       <div className="mb-10 flex items-center justify-between">
         <div>
           <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Per Page</label>
@@ -73,7 +73,7 @@ const handlePageClick =  (e) => {
         </div>
 
         <div>
-          <label  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Search Query:</label>
+          <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Search Query:</label>
           <input onChange={handleSearch} type="text" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search.."></input>
         </div>
 
@@ -106,31 +106,31 @@ const handlePageClick =  (e) => {
             })}
           </tbody>
         </table>
-        
+
       </div>
       }
       {/* pagination */}
       <div className="mx-auto">
-      {Total && <ReactPaginate
-        pageClassName="page-item"
-        pageLinkClassName="page-link"
-        breakClassName="page-item"
-        breakLinkClassName="page-link"
-        previousClassName="page-item"
-        previousLinkClassName="page-link"
-        nextClassName="page-item"
-        nextLinkClassName="page-link"
-        containerClassName="pagination"
-        activeClassName="active"
-        marginPagesDisplayed={2}
-        breakLabel="..."
-        nextLabel=" >"
-        onPageChange={handlePageClick}
-        pageRangeDisplayed={5}
-        pageCount={Math.ceil(Number(Total/perPage))}
-        previousLabel="< "
-        
-      />}
+        {Total && <ReactPaginate
+          pageClassName="page-item"
+          pageLinkClassName="page-link"
+          breakClassName="page-item"
+          breakLinkClassName="page-link"
+          previousClassName="page-item"
+          previousLinkClassName="page-link"
+          nextClassName="page-item"
+          nextLinkClassName="page-link"
+          containerClassName="pagination"
+          activeClassName="active"
+          marginPagesDisplayed={2}
+          breakLabel="..."
+          nextLabel=" >"
+          onPageChange={handlePageClick}
+          pageRangeDisplayed={5}
+          pageCount={Math.ceil(Number(Total / perPage))}
+          previousLabel="< "
+
+        />}
       </div>
     </div>
   )
