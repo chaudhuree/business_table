@@ -33,7 +33,7 @@ app.use(limiter)
 
 
 // Mongo DB Database Connection
-let URI="mongodb://localhost:27017/businessTable";
+let URI="mongodb://127.0.0.1:27017/businessTable";
 let OPTION={user:'',pass:'',autoIndex:true}
 mongoose.connect(URI,OPTION,(error)=>{
     console.log("Connection Success")
